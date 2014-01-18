@@ -15,10 +15,12 @@ function AutoUpdateFactory(restServiceHandler, appstatus, topicMessageDispatcher
                 url: 'version.json'
             },
             success: function (app) {
-                if (appstatus.version != app.version) {
-                    var shouldSendNotifications = appstatus.version != undefined;
+                if (appstatus.version == undefined)
                     appstatus.version = app.version;
-                    if (shouldSendNotifications)
+                if (appstatus.version != app.version) {
+                    var shouldRaiseNotification = appstatus.updateVersion == undefined;
+                    appstatus.updateVersion = app.version;
+                    if (shouldRaiseNotification)
                         topicMessageDispatcher.fire('app.updates.available', 'ok');
                 }
             }

@@ -12,14 +12,16 @@ describe('autoupdater', function () {
 
         it('then the app version should be undefined', function () {
             expect(app.version).toBeUndefined();
+            expect(app.updateVersion).toBeUndefined();
         });
 
         describe('when checking for updates', function () {
             var args, params;
+            var versionContext = {
+                version: 1
+            };
             var retrieveVersionInfo = function () {
-                args.success({
-                    version: 1
-                });
+                args.success(versionContext);
             };
 
             beforeEach(inject(function (restServiceHandler) {
@@ -38,7 +40,7 @@ describe('autoupdater', function () {
             describe('and version info is retrieved', function () {
                 beforeEach(retrieveVersionInfo);
 
-                it('then app version is defined', function () {
+                it('then app version is known', function () {
                     expect(app.version).toEqual(1);
                 });
 
@@ -46,7 +48,7 @@ describe('autoupdater', function () {
                     expect(topics['app.updates.available']).toBeUndefined();
                 });
 
-                it('then no system should be raised', function () {
+                it('then no system event should be raised', function () {
                     expect(topics['system.info']).toBeUndefined();
                 });
             });
@@ -57,8 +59,25 @@ describe('autoupdater', function () {
                 });
                 beforeEach(retrieveVersionInfo);
 
+                it('then update version is known', function () {
+                    expect(app.version).toEqual(0);
+                    expect(app.updateVersion).toEqual(1);
+                });
+
                 it('then an app change event should be raised', function () {
                     expect(topics['app.updates.available']).toBeDefined();
+                });
+
+                describe('and additional version updates are detected', function() {
+                    beforeEach(function() {
+                        versionContext.version = 2;
+                        topics['app.updates.available'] = undefined;
+                    });
+                    beforeEach(retrieveVersionInfo);
+
+                    it('then no more app change events should be raised', function () {
+                        expect(topics['app.updates.available']).toBeUndefined();
+                    });
                 });
             });
         });
