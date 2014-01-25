@@ -3,7 +3,7 @@
     "main": "./src/autoupdater.js",
     "dependencies": {
         "angular": "1.2.5",
-        "binarta.rest.client.angular": "0.0.1",
+        "binarta.rest.client.angular": ">=0.0.1",
         "binarta.notifications.angular": ">=0.0.3"
     },
     "devDependencies": {
