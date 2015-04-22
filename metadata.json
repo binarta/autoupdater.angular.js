@@ -1,0 +1,13 @@
+{
+  "msgs":{
+    "default":{
+      "app.updates.available": "U bekijkt een verouderde versie. Gelieve de pagina te herladen."
+    },
+    "nl":{
+      "app.updates.available": "U bekijkt een verouderde versie. Gelieve de pagina te herladen."
+    },
+    "en":{
+      "app.updates.available": "Your application version is out of date. Refresh to update."
+    }
+  }
+}
