@@ -1,6 +1,9 @@
 {
     "name": "binarta.autoupdater.angular",
-    "main": "./src/autoupdater.js",
+    "main": [
+      "./src/autoupdater.js",
+      "./metadata.json"
+    ],
     "dependencies": {
         "angular": "1.3.*",
         "binarta.rest.client.angular": "0.*.*",
