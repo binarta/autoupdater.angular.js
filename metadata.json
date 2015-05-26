@@ -1,13 +1,19 @@
 {
   "msgs":{
     "default":{
-      "app.updates.available": "U bekijkt een verouderde versie. Gelieve de pagina te herladen."
+      "app.updates.available": "Your application version is out of date. Refresh to update."
     },
     "nl":{
       "app.updates.available": "U bekijkt een verouderde versie. Gelieve de pagina te herladen."
     },
     "en":{
       "app.updates.available": "Your application version is out of date. Refresh to update."
+    },
+    "fr":{
+      "app.updates.available": "Ceci n'est pas la dernière version. Veuillez actualiser la page."
+    },
+    "de":{
+      "app.updates.available": "Sie sehen eine veraltete Version. Seite bitte neu laden."
     }
   }
 }
