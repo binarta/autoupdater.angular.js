@@ -2,7 +2,6 @@
     "name": "binarta.autoupdater.angular",
     "main": [
       "./src/autoupdater.js",
-      "./metadata.json",
       "./metadata-system.json"
     ],
     "dependencies": {
