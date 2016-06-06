@@ -1,0 +1,5 @@
+{
+  "default": {
+    "autoupdater": "bower_components/binarta.autoupdater.angular/src/autoupdater.js"
+  }
+}

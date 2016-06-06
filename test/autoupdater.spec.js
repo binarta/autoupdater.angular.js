@@ -26,7 +26,7 @@ describe('autoupdater', function () {
 
             beforeEach(inject(function (restServiceHandler) {
                 updater();
-                args = restServiceHandler.calls[0].args[0];
+                args = restServiceHandler.calls.first().args[0];
                 params = args.params;
             }));
 
